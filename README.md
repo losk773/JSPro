@@ -1,2 +1,2 @@
 # JSPro
-# courses js pro repository
+courses js pro repository
