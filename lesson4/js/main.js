@@ -4,6 +4,7 @@
     let taskWordBtn = document.querySelector('.task-btn[data-task="word"]');
     let taskRandomBtn = document.querySelector('.task-btn[data-task="random"]');
     let taskMoneyBtn = document.querySelector('.task-btn[data-task="money"]');
+    let taskBDayBtn = document.querySelector('.task-btn[data-task="bday"]');
 
     let getInputTask = (target) => {
         let taskBox = target.closest('.task');
@@ -77,7 +78,7 @@
 
                     rand = Math.random() * 10;
                     randomContainer.push(Math.floor(rand));
-                    
+
                     listItem.innerHTML = randomContainer[k];
                     resultList.appendChild(listItem);
                 }
@@ -149,9 +150,16 @@
         resultBox.innerHTML = rub + ' ' + cent;
 
     };
+    // Задание 8
+    let task8 = (event) => {
+        let taskInput = getInputTask(event.target);
+        let resultBox = getResultBox(event.target);
+        console.log(taskInput.value);
+    };
 
     taskSumBtn.addEventListener('click', task1);
     taskWordBtn.addEventListener('click', task2);
     taskRandomBtn.addEventListener('click', task3);
     taskMoneyBtn.addEventListener('click', task7);
+    taskBDayBtn.addEventListener('click', task8);
 })();
