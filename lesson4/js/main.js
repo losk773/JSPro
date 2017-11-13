@@ -53,29 +53,40 @@
         let taskInput = getInputTask(event.target);
         let resultList = getResultBox(event.target);
         let radioInput = document.querySelectorAll('.task .type-radio');
-        console.log(radioInput);
         let count = parseInt(taskInput.value);
         let rand = 0;
         let randomContainer = '';
+        resultList.innerHTML = '';
+
         for (let i = 0; i < radioInput.length; i++) {
             if (radioInput[i].checked && radioInput[i].dataset.type == 'array') {
                 randomContainer = [];
+
                 for (let k = 0; k < count; k++) {
-                    
+                    let listItem = document.createElement('li');
+                    listItem.className = 'task-result-item';
+                    rand = Math.random() * 10;
                     randomContainer.push(Math.floor(rand));
+                    listItem.innerHTML = randomContainer[k];
+                    resultList.appendChild(listItem);
                 }
             } else if (radioInput[i].checked && radioInput[i].dataset.type == 'map') {
                 randomContainer = new Map();
+
                 for (let k = 0; k < count; k++) {
+                    let listItem = document.createElement('li');
+                    listItem.className = 'task-result-item';
                     rand = Math.random() * 10;
                     randomContainer.set(k, Math.floor(rand));
+                    listItem.innerHTML = randomContainer.get(k);
+                    resultList.appendChild(listItem);
                 }
-                console.log(randomContainer);
             }
         }
-        resultList.innerHTML = randomContainer;
         taskInput.value = '';
     };
+
+
     taskSumBtn.addEventListener('click', task1);
     taskWordBtn.addEventListener('click', task2);
     taskRandomBtn.addEventListener('click', task3);
