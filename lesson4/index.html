@@ -21,9 +21,20 @@
         <div class="task">
             <h2 class="task-title">Task 2:</h2>
             <p class="task-desc">Разбить строку на слова</p>
-            <input type="text" class="task-input"/>
+            <input type="text" class="task-input" placeholder="Введите любую фразу"/>
             <button type="button" class="task-btn" data-task="word">Получить слова</button>
             <ul class="task-result"></ul>
+        </div>
+        <div class="task">
+            <h2 class="task-title">Task 3:</h2>
+            <p class="task-desc">Генерация рандомных чисел от 0 до 10</p>
+            <input type="text" class="task-input" placeholder="Сколько чисел?"/>
+            <label for="radio1">Массив</label>
+            <input type="radio" class="type-radio" name="radio1" data-type="array" checked>
+            <label for="radio1">Множество</label>
+            <input type="radio" class="type-radio" name="radio1" data-type="map">
+            <button type="button" class="task-btn" data-task="random">Сгенерировать</button>
+            <div class="task-result"></div>
         </div>
     </div>
 </body>
