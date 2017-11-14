@@ -6,49 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homework 4</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="tasks-box">
+        <h1 class="tasks-box-title"><i class="material-icons">&#xE892;</i> Занятие 4. Массивы. Объекты</h1>
         <div class="task">
-            <h2 class="task-title">Task 1:</h2>
-            <p class="task-desc">Получить сумму первых N натуральных чисел</p>
-            <input type="number" class="task-input" min="1" max="100" value="1" />
-            <button type="button" class="task-btn" data-task="sum">Рассчитать</button>
+            <h2 class="task-title"><i class="material-icons">&#xE86C;</i>Task 1:</h2>
+            <div class="task-body">
+                <p class="task-desc">Получить сумму первых N натуральных чисел</p>
+                <form class="task-control">
+                    <input type="number" class="task-input" min="1" max="100" value="1" />
+                    <button type="button" class="task-btn" data-task="sum"><i class="material-icons">&#xE90F;</i>Рассчитать</button>
+                </form>
+            </div>
+            <span class="resulat-title">Результат</span>
             <div class="task-result"></div>
         </div>
         <div class="task">
-            <h2 class="task-title">Task 2:</h2>
-            <p class="task-desc">Разбить строку на слова</p>
-            <input type="text" class="task-input" placeholder="Введите любую фразу"/>
-            <button type="button" class="task-btn" data-task="word">Получить слова</button>
+            <h2 class="task-title"><i class="material-icons">&#xE86C;</i>Task 2:</h2>
+            <div class="task-body">
+                <p class="task-desc">Порезать строку на слова</p>
+                <form class="task-control">
+                    <input type="text" class="task-input" placeholder="Введите любую фразу" />
+                    <button type="button" class="task-btn" data-task="word"><i class="material-icons">&#xE14E;</i>Порезать</button>
+                </form>
+            </div>
+            <span class="resulat-title">Результат</span>
             <ul class="task-result"></ul>
         </div>
         <div class="task">
-            <h2 class="task-title">Task 3/4:</h2>
-            <p class="task-desc">Генерация рандомных чисел от 0 до 10</p>
-            <input type="text" class="task-input" placeholder="Сколько чисел?"/>
-            <label for="radio1">Массив</label>
-            <input type="radio" class="type-radio" name="radio1" data-type="array" checked>
-            <label for="radio1">Множество</label>
-            <input type="radio" class="type-radio" name="radio1" data-type="map">
-            <button type="button" class="task-btn" data-task="random">Сгенерировать</button>
+            <h2 class="task-title"><i class="material-icons">&#xE86C;</i>Task 3/4:</h2>
+            <div class="task-body">
+                <p class="task-desc">Генерация рандомных чисел от 0 до 10</p>
+                <form class="task-control">
+                    <input type="text" class="task-input task-input-small" placeholder="N чисел" />
+                    <label for="radio1">Массив</label>
+                    <input type="radio" class="type-radio" name="radio1" data-type="array" checked>
+                    <label for="radio1">Множество</label>
+                    <input type="radio" class="type-radio" name="radio1" data-type="map">
+                    <button type="button" class="task-btn" data-task="random"><i class="material-icons">&#xE5D5;</i>Сгенерировать</button>
+                </form>
+            </div>
+            <span class="resulat-title">Результат</span>
             <ul class="task-result"></ul>
         </div>
         <div class="task">
-            <h2 class="task-title">Task 7:</h2>
-            <p class="task-desc">Введите любую сумму денег:</p>
-            <input type="text" class="task-input" placeholder="Вводить по типу (2.12)"/>
-            <button type="button" class="task-btn" data-task="money">Получить деньги</button>
+            <h2 class="task-title"><i class="material-icons">&#xE86C;</i>Task 7:</h2>
+            <div class="task-body">
+                <p class="task-desc">Введите любую сумму денег:</p>
+                <form class="task-control">
+                    <input type="text" class="task-input" placeholder="Вводить по типу (2.12)" />
+                    <button type="button" class="task-btn" data-task="money"><i class="material-icons">&#xE263;</i>Получить</button>
+                </form>
+            </div>
+            <span class="resulat-title">Результат</span>
             <div class="task-result"></div>
         </div>
         <div class="task">
-            <h2 class="task-title">Task 8:</h2>
-            <p class="task-desc">Через сколько дней "ДР" ?:</p>
-            <label for="date">Дата рождения:</label>
-            <input type="date" name="date" class="task-input" placeholder="Когда день рождения?"/>
-            <button type="button" class="task-btn" data-task="bday">Посчитать</button>
+            <h2 class="task-title"><i class="material-icons">&#xE86C;</i>Task 8:</h2>
+            <div class="task-body">
+                <p class="task-desc">Через сколько дней "ДР" ?:</p>
+                <form class="task-control">
+                    <input type="text" name="date" class="task-input" placeholder="Дата рождения (дд.мм)" />
+                    <button type="button" class="task-btn" data-task="bday"><i class="material-icons">&#xE7E9;</i>Посчитать</button>
+                </form>
+            </div>
+            <span class="resulat-title">Результат</span>
             <div class="task-result"></div>
         </div>
     </div>
