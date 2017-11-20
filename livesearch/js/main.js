@@ -35,7 +35,7 @@ var LiveSearch = (() => {
             for (let i = 0; i < data.length; i++) {
                 let item = document.createElement('div');
                 item.classList.add('search-item');
-                item.textContent = data[i];
+                item.innerHTML = '<i class="material-icons">check</i>' + data[i];
                 listElements.appendChild(item);
             }
             this.search();

@@ -2,15 +2,24 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #EFEBD9; 
 }
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 22px;
+  color: #403E4E;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
 .search-box {
     max-width: 1140px;
     padding: 0 15px;
-    margin: auto;
-}
-.search-title {
-    text-align: center;
-    font-size: 32px;
-    color: #403E4E;
+    margin: 50px auto;
 }
 .search-data-list {
     display: flex;
@@ -19,26 +28,48 @@ body {
     padding: 40px 0;
 }
 .search-item {
+    position: relative;
     width: 150px;
     line-height: 90px;
     border-radius: 5px;
     margin-right: 20px;
     margin-bottom: 20px;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 500;
     color: #403E4E;
     background-color:  #fff;
     text-align: center;
+    transition: all .3s;
+}
+.search-item>i {
+    position:  absolute;
+    top: 2px;
+    right: 5px;
+    color: #fff;
+    opacity: 0;
+    transition: all .3s;
 }
 .search-item.active {
     color: #ffffff;
     background: #E73A38; 
 }
+.search-item.active>i { opacity: 1; }
+.search-head,
+.search-form {
+    position: relative;
+}
+.search-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 .search-head input {
-    padding-bottom: 10px;
+    position: relative;
+    padding-bottom: 5px;
+    padding-left: 25px;
     border: none;
     width: 15%;
-    font: 300 16px 'Montserrat';
+    font: 500 16px 'Montserrat';
     border-bottom: 2px solid  #E73A38;
     background-color: #EFEBD9;
     transition: all .4s;
@@ -48,17 +79,16 @@ body {
     width: 100%;
 }
 .search-head input::-webkit-input-placeholder {
-    font-size: 14px;
-    font-weight: 300;
-    font: 300 14px 'Montserrat';
+    font: 500 14px 'Montserrat';
+    color: #403E4E;
 }
 .search-count {
+    position: absolute;
+    bottom: -25px;
     display: block;
+    font-size: 14px;
+    font-weight: 500;
     opacity: 0;
     transition: all .4s;
 }
 .search-count.active { opacity: 1; }
-.search-count {
-    font-size: 14px;
-    font-weight: 300;
-}

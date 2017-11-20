@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Live Search</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="app-search">
         <div class="search-box">
             <div class="search-head">
-                <h2 class="search-title">Live Search</h2>
-                <input type="text" name="search" placeholder="Поиск" data-type="search">
+                <form class="search-form">
+                    <input type="text" name="search" placeholder="Поиск" data-type="search"></input>
+                    <i class="material-icons search-icon">search</i>
+                </form>
                 <div class="search-count"></div>
             </div>
             <div class="search-data-list"></div>
         </div>
     </div>
 </body>
-<script src="js/main.js"></script>
-<script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
     LiveSearch.init();
 </script>
 </html>
