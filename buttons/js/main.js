@@ -29,7 +29,6 @@
                 timerBtn.classList.remove('active');
                 timerBtn.innerText = 'Запустить таймер';
                 target.dataset.status = 'off';
-                timerBox.innerHTML = '0';
             break;
         }
     };
