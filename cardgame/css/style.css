@@ -1,0 +1,35 @@
+body {
+    background-color: #74C239;
+}
+.card-pack {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    margin-top: 100px;
+}
+.card-pack .card {
+    position: absolute;
+    top: 0;
+    border: 1px solid #000;
+}
+.card {
+    width: 150px;
+    height: 200px;
+    background-color: #fff;
+}
+.card .value,
+.card .color {
+    opacity: 0;
+}
+.play-board {
+    display: flex;
+    justify-content: flex-start;
+}
+.play-board .card {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.play-board .card .value,
+.play-board .card .color {
+    opacity: 1;
+}
