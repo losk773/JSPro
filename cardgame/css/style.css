@@ -1,11 +1,19 @@
 body {
-    background-color: #74C239;
+    font-family: 'Tahoma', sans-serif;
+    margin: 0;
+    background-image: url(https://st3.depositphotos.com/4072575/15577/i/110/depositphotos_155774886-stock-photo-poker-table-felt-background-seamless.jpg);
+}
+.card-board {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 .card-pack {
-    position: relative;
+    position: absolute;
+    top: calc(60% - 100px);
+    left: 10px;
     height: 200px;
-    width: 100%;
-    margin-top: 100px;
+    width: 152px;
 }
 .card-pack .card {
     position: absolute;
@@ -13,23 +21,78 @@ body {
     border: 1px solid #000;
 }
 .card {
-    width: 150px;
-    height: 200px;
+    width: 100px;
+    height: 150px;
+    border-radius: 15px;
+    margin-right: 10px;
     background-color: #fff;
+    background-image: url('https://i.pinimg.com/474x/11/b3/82/11b3825d2fef633c61c4aa5953dd6ce2.jpg');
+    background-position: center;
 }
 .card .value,
 .card .color {
     opacity: 0;
 }
-.play-board {
+.computer-board,
+.player-board {
+    position: absolute;
+    left: calc(50% - 456px);
+    width: 912px;
+    height: 180px;
+    padding: 0 10px;
+    border-radius: 15px;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    -webkit-box-shadow: inset 0px 0px 14px 0px rgb(0, 0, 0);
+    -moz-box-shadow: inset 0px 0px 14px 0px rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 14px 0px rgb(0, 0, 0);
 }
-.play-board .card {
-    margin-top: 10px;
-    margin-right: 10px;
+.player-board { bottom: 10px; }
+.computer-board { top: 10px; }
+.player-board .card,
+.computer-board .card {
+    position: relative;
+    top: 0 !important;
+    background: #ffffff;
 }
-.play-board .card .value,
-.play-board .card .color {
+.player-board .card:last-child, 
+.computer-board .card:last-child {
+    margin-right: 0;
+}
+.player-board .card .value,
+.player-board .card .color,
+.computer-board .card .color,
+.computer-board .card .value {
     opacity: 1;
+}
+.computer-board .card:first-child {
+    background-image: url('https://i.pinimg.com/474x/11/b3/82/11b3825d2fef633c61c4aa5953dd6ce2.jpg');
+    background-position: center;
+}
+.computer-board .card:first-child .value,
+.computer-board .card:first-child .color {
+    opacity: 0;
+}
+.control-btn {
+    position: absolute;
+    right: 15px;
+    bottom: 30px;
+}
+.control-btn button {
+    display: block;
+    width: 150px;
+    margin-bottom: 5px;
+}
+.result-player {
+    position: absolute;
+    right: 75px;
+    bottom: 100px;
+    font-size: 46px;
+    color: #ffffff;
+}
+.card-content {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
