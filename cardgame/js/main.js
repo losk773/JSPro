@@ -1,7 +1,7 @@
 var Game = (function () {
     let cardsArray = [];
     let colors = ['♠', '♣', '♥', '♦'];
-    let values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'валет', 'дама', 'король', 'туз'];
+    let values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'В', 'Д', 'К', 'Т'];
     let resultPlayer = 0;
     let resultComputer = 0;
     let getCardBtn = document.querySelector('.get-card-btn');
@@ -23,9 +23,6 @@ var Game = (function () {
                     cardsArray.push(card);
                 }
             }
-
-            this.shufflePack(cardsArray);
-            this.createCards();
         },
         shufflePack: function (arr) {
             arr.sort((a, b) => {
@@ -43,7 +40,7 @@ var Game = (function () {
                 cardElem.classList.add('card');
                 cardElem.innerHTML = "<div class='card-content'>" + 
                                      "<span class='value'>" + cardsArray[i].value + "</span>"
-                                     +" " +
+                                     +" "+
                                      "<span class='color'>" + cardsArray[i].color + "</span>" +
                                      "</div>";
                 cardElem.style.zIndex = --zIndex;
@@ -56,21 +53,22 @@ var Game = (function () {
             let result = 0;
             switch (true) {
                 case (parseInt(value) >= 6 || parseInt(value) <= 10): result += parseInt(value); break;
-                case value === 'король': result += 4; break;
-                case value === 'дама': result += 3; break;
-                case value === 'валет': result += 2; break;
-                case value === 'туз': result += parseInt(prompt('Выберите номинал туза 1/11', '')); break;
+                case value === 'К': result += 4; break;
+                case value === 'Д': result += 3; break;
+                case value === 'В': result += 2; break;
+                case value === 'Т': result += parseInt(prompt('Выберите номинал туза 1/11', '')); break;
             }
-
             return result;
         },
         stopedGame: function () {
             getCardBtn.setAttribute('disabled', 'true');
             alert('Вы набрали ' + result + ' очков');
         },
-        start: function () {
+        startGame: function () {
             this.generatePackCards();
-
+            this.shufflePack(cardsArray);
+            this.createCards();
+            
             for (let i = 0; i < 4; i++) {
                 let cardItems = Array.from(document.querySelectorAll('.card'));
                 let card = cardsArray.shift();
@@ -83,7 +81,9 @@ var Game = (function () {
                     computerBoard.appendChild(cardItems.shift());
                 }
             }
-
+        },
+        init: function () {
+            this.startGame();
             getCardBtn.addEventListener('click', this.getCard);
             stopCardBtn.addEventListener('click', this.stopedGame);
         }
