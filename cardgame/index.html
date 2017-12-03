@@ -8,18 +8,37 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="card-board">
-        <div class="card-pack"></div>
-        <div class="player-board"></div>
-        <div class="computer-board"></div>
-        <div class="result-player"></div>
-        <div class="result-computer"></div>
-        <div class="control-btn">
-            <button class="get-card-btn">Достать карту</button>
-            <button class="stop-card-btn">Хватит</button>
+    <div class="welcome-box">
+        <div class="welcome-content">
+            <h1 class="welcome-title">Добро пожаловать в карточную игру 21</h1>
+            <input type="text" class="name-input" placeholder="Введите ваше имя">
+            <button type="button" class="start-game-btn">Начать игру</button>
         </div>
     </div>
+    <div class="card-board">
+        <div class="cards-box"></div>
+        <div class="player-place">
+            <h3 class="player-name"></h3>
+            <div class="player-place-cards"></div>
+            <div class="score-box"></div>
+            <div class="control-btn">
+                    <button class="get-card-btn">Достать карту</button>
+                    <button class="stop-card-btn">Хватит</button>
+            </div>
+        </div>
+        <div class="computer-place">
+            <h3 class="computer-name"></h3>
+            <div class="computer-place-cards"></div>
+            <div class="score-box"></div>
+        </div>
+        
+    </div>
+
 </body>
+
+<script src="js/libs/Player.js"></script>
+<script src="js/libs/CardPack.js"></script>
+<script src="js/libs/Board.js"></script>
 <script src="js/main.js"></script>
 <script>
     Game.init();
