@@ -7,6 +7,9 @@ var Game = (() => {
     let restartButton = document.querySelector('.restart-card-btn');
 
     return {
+        botGame: function(){
+
+        },
         tossCardsOnBoard: function () {
             board.computerPlace.classList.remove('active');
             cardPack.generateCardsPack();
@@ -40,7 +43,18 @@ var Game = (() => {
         init: function () {
             board.welcome.classList.add('active');
             board.buttonGetCard.addEventListener('click', player.getCard.bind(player));
-            board.buttonStopCard.addEventListener('click', bot.botGame.bind(bot));
+            board.buttonStopCard.addEventListener('click',function(e) {
+        
+                bot.botGame.call(bot,e);
+                
+                switch(true) {
+                    case (bot.score > player.score) :
+                    case player.score > 21: console.log('Вы проиграли('); break;
+                    case (bot.score < player.score) :
+                    case bot.score > 21: console.log('Вы выиграли!'); break;
+                    case (bot.score === player.score) : console.log('Ничья!');
+                }
+            });
             startButton.addEventListener('click', this.start.bind(this));
             restartButton.addEventListener('click', this.restart.bind(this));
         }

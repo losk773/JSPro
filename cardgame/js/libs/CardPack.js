@@ -1,5 +1,9 @@
-;
-(() => {
+;(() => {
+    // Объект карты
+    function Card(mode, value) {
+        this.mode = mode;
+        this.value = value;
+    };
     // Объект колоды карт
     function CardPack() {
         this.modes = ['♠', '♥', '♣', '♦'];
@@ -22,10 +26,6 @@
                 });
             }
         };
-    };
-    function Card(mode, value) {
-        this.mode = mode;
-        this.value = value;
     };
 
     window.CardPack = CardPack;
