@@ -48,7 +48,7 @@ body {
 .cards-box .card {
     position: absolute;
     top: 0;
-    border: 1px solid #000;
+    border: 1px solid #801111;
 }
 .card {
     width: 100px;
@@ -56,11 +56,21 @@ body {
     border-radius: 15px;
     margin-right: 10px;
     background-color: #fff;
-    background-image: url('https://i.pinimg.com/474x/11/b3/82/11b3825d2fef633c61c4aa5953dd6ce2.jpg');
+    background-image: url('http://cardsfm.ru/published/publicdata/ZYTOSHOPSCRIPT/attachments/SC/products_pictures/back01jb_enl.jpg');
     background-position: center;
+    background-size: cover;
+}
+.card[data-color='red'] { color: red; }
+.card[data-color='black'] {color: #000; }
+.card .value {
+    font-size: 20px;
+    line-height: 24px;
+}
+.card .mode {
+    line-height: 16px;
 }
 .card .value,
-.card .color {
+.card .mode {
     opacity: 0;
 }
 .player-place,
@@ -85,7 +95,7 @@ body {
 .player-place { bottom: 10px; }
 .computer-place { top: 10px; }
 .player-place .card,
-.computer-place .card {
+.computer-place.active .card {
     position: relative;
     top: 0 !important;
     background: #ffffff;
@@ -95,39 +105,81 @@ body {
     margin-right: 0;
 }
 .player-place .card .value,
-.player-place .card .color,
-.computer-place .card .color,
+.player-place .card .mode,
+.computer-place .card .mode,
 .computer-place .card .value {
     display: block;
     opacity: 1;
 }
-.computer-place .card:first-child {
-    background-image: url('https://i.pinimg.com/474x/11/b3/82/11b3825d2fef633c61c4aa5953dd6ce2.jpg');
-    background-position: center;
-}
-.computer-place .card:first-child .value,
-.computer-place .card:first-child .color {
-    opacity: 0;
-}
 .control-btn {
     position: absolute;
     right: 15px;
-    bottom: 30px;
+    bottom: 6px;
 }
 .control-btn button {
     display: block;
-    width: 150px;
-    margin-bottom: 5px;
+    width: 155px;
+    height: 30px;
+    border: none;
+    margin-bottom: 10px;
+    background-color: #F6D600;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 7px;
+    box-shadow: 0px 6px 0px 0px #b5a11c;
 }
-.player-place .score-box {
-    position: absolute;
-    right: 75px;
-    bottom: 100px;
-    font-size: 46px;
+.control-btn button:focus {
+    outline: none;
+}
+.control-btn button:hover {
+    background-color: #63B931;
     color: #ffffff;
+    box-shadow: 0px 6px 0px 0px  rgb(67, 128, 29);
+}
+.control-btn button:last-child {
+    margin-bottom: 0;
+}
+.control-btn button:disabled {
+    background-color: #D11C16;
+    color: #ffffff;
+    box-shadow: 0px 7px 0px 0px #611d1b; 
 }
 .card-content {
     position: absolute;
     top: 5px;
     left: 10px;
+    text-align: center;
+}
+.computer-place .card .card-content,
+.computer-place .score-box {
+    display: none;
+}
+.computer-place.active .card .card-content,
+.computer-place.active .score-box {
+    display: block;
+}
+.player-place .score-box,
+.computer-place.active .score-box {
+    position: absolute;
+    right: 75px;
+    bottom: 125px;
+    font-size: 46px;
+    color: #ffffff;
+}
+.computer-place.active .score-box {
+    top: 55px;
+    bottom: auto;
+}
+.player-name,
+.computer-name {
+    position: absolute;
+    top: 55px;
+    left: 10px;
+    width: 200px;
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+    color: #ffffff;
+    
 }

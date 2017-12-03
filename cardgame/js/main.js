@@ -1,30 +1,48 @@
 var Game = (() => {
     let board = new Board();
     let cardPack = new CardPack();
-    let welcome = document.querySelector('.welcome-box');
+    let player = new Player(board.playerPlaceCards, 'player');
+    let bot = new Player(board.computerPlaceCards);
     let startButton = document.querySelector('.start-game-btn');
+    let restartButton = document.querySelector('.restart-card-btn');
 
     return {
-        start: function() {
-            welcome.classList.remove('active');
-            let namePlayer = document.querySelector('.name-input').value;
-            let player = new Player(board.playerPlace,namePlayer);
-            let bot = new Player(board.computerPlace);
-
+        tossCardsOnBoard: function () {
+            board.computerPlace.classList.remove('active');
             cardPack.generateCardsPack();
-            cardPack.shuffleCardsPack();
             board.createPackOnBoard(cardPack.cards);
 
             for (let i = 0; i < 2; i++) {
-                player.getCard(cardPack.cards);
+                player.getCard();
+                bot.getCard();
             }
-            
-            board.buttonGetCard.addEventListener('click', player.getCard.bind(player, cardPack.cards));
-            board.buttonStopCard.addEventListener('click', player.stopGame);
         },
-        init: function() {
-            welcome.classList.add('active');
-            startButton.addEventListener('click', this.start);
+        start: function () {
+            
+            board.welcome.classList.remove('active');
+
+            player.name = document.querySelector('.name-input').value;
+            bot.name = 'Искуственный Интелект';
+
+            board.playerNameBox.innerText = player.name;
+            board.computerNameBox.innerText = bot.name;
+
+            this.tossCardsOnBoard();
+            
+        },
+        restart: function() {
+            board.buttonGetCard.removeAttribute('disabled');
+            board.buttonStopCard.removeAttribute('disabled');
+            player.score = 0;
+            bot.score = 0;
+            this.tossCardsOnBoard();
+        },
+        init: function () {
+            board.welcome.classList.add('active');
+            board.buttonGetCard.addEventListener('click', player.getCard.bind(player));
+            board.buttonStopCard.addEventListener('click', bot.botGame.bind(bot));
+            startButton.addEventListener('click', this.start.bind(this));
+            restartButton.addEventListener('click', this.restart.bind(this));
         }
     };
 })();
