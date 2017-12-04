@@ -1,12 +1,33 @@
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 22px;
+    color: #403E4E;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  }
 body {
-    font-family: 'Tahoma', sans-serif;
+    font-family: 'Montserrat';
     margin: 0;
-    background-image: url(https://st3.depositphotos.com/4072575/15577/i/110/depositphotos_155774886-stock-photo-poker-table-felt-background-seamless.jpg);
+    padding: 0;
+    background-image: url(https://st3.depositphotos.com/4072575/15577/i/110/depositphotos_155774886-stock-photo-poker-table-felt-background-seamless.jpg)
 }
-.welcome-box {
+.control-btn button:focus,
+.start-game-btn:focus { 
+    outline: none;
+}
+.welcome-box,
+.result-box {
     display: none;
 }
-.welcome-box.active {
+.welcome-box.active,
+.result-box.active {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -18,7 +39,8 @@ body {
     text-align: center;
     z-index: 100;
 }
-.welcome-box:before {
+.welcome-box:before,
+.result-box:before {
     content: '';
     position: absolute;
     top: 0;
@@ -29,9 +51,32 @@ body {
     opacity: .5;
     z-index: -1;
 }
-.welcome-content {
-    margin-top: 250px;
+.welcome-content { margin-top: 250px; }
+.welcome-title {
+    margin: 0;
+    margin-bottom: 25px;
+    font-size: 52px;
+    font-weight: 500;
     color: #fff;
+    text-shadow: 4px 0px #000000;
+}
+.welcome-title .accent-color { color: #f6d600; }
+.result-box h3 {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
+    margin: 0;
+    font-size: 32px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 2px 0px #000000;
+}
+.result-box h3 i.material-icons {
+    font-size: 52px;
+    vertical-align: middle;
+    color: #F6D600;
 }
 .card-board {
     position: relative;
@@ -66,9 +111,7 @@ body {
     font-size: 20px;
     line-height: 24px;
 }
-.card .mode {
-    line-height: 16px;
-}
+.card .mode { line-height: 16px; }
 .card .value,
 .card .mode {
     opacity: 0;
@@ -109,6 +152,7 @@ body {
 .computer-place .card .mode,
 .computer-place .card .value {
     display: block;
+    font-weight: 600;
     opacity: 1;
 }
 .control-btn {
@@ -129,17 +173,13 @@ body {
     border-radius: 7px;
     box-shadow: 0px 6px 0px 0px #b5a11c;
 }
-.control-btn button:focus {
-    outline: none;
-}
+
 .control-btn button:hover {
     background-color: #63B931;
     color: #ffffff;
     box-shadow: 0px 6px 0px 0px  rgb(67, 128, 29);
 }
-.control-btn button:last-child {
-    margin-bottom: 0;
-}
+.control-btn button:last-child { margin-bottom: 0; }
 .control-btn button:disabled {
     background-color: #D11C16;
     color: #ffffff;
@@ -174,12 +214,57 @@ body {
 .player-name,
 .computer-name {
     position: absolute;
-    top: 55px;
-    left: 10px;
-    width: 200px;
+    top: 15px;
+    left: 25px;
+    width: 180px;
     margin: 0;
-    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+.player-name i,
+.computer-name i {
+    font-size: 32px;
+    color: #000000c2;
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+.restart-card-btn { position: relative; }
+.name-form {
+    position: relative;
+    width: 350px;
+    margin: auto;
+}
+.name-input {
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid #fff;
+    width: 100%;
+    padding-bottom: 5px;
+    font: 400 16px 'Montserrat';
+    letter-spacing: 2px;
+    color: #ffffff;
+    transition: all .4s;
+}
+.name-input:focus { 
+    outline: none;
+    border-bottom-color: #F6D600; 
+}
+.name-input::-webkit-input-placeholder { color: #eeeeee; }
+.start-game-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    border: none;
+    background: transparent;
+    padding: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.start-game-btn i.material-icons {
     font-size: 24px;
     color: #ffffff;
-    
 }
+.start-game-btn:hover i.material-icons { color: #F6D600; }

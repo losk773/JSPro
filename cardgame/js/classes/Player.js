@@ -7,6 +7,7 @@
         this.hand = []; // массив карт в руке у игрока
         this.mode = mode || 'bot'; // поле режима: человек или ИИ
     };
+
     Player.prototype = Object.create(CardPack.prototype);
     Player.prototype.constructor = Player;
 
@@ -15,7 +16,6 @@
         let scoreBox = this.place.nextElementSibling;
         scoreBox.innerText = this.score;
     };
-
     // Метод получения карты из колоды
     Player.prototype.getCard = function (e) {
         let gotCard = this.cards.shift();
@@ -40,12 +40,10 @@
                     break;
                 }
         }
-        if (this.score > 21 && e) {
-            e.target.setAttribute('disabled', 'true');
-        }
+        if (this.score > 21 && e) e.target.setAttribute('disabled', 'true');
         this.showScore();
     };
-    Player.prototype.botGame = function(e) {
+    Player.prototype.startComputerGame = function(e) {
         let target = e.target;
         target.setAttribute('disabled', 'true');
         target.previousElementSibling.setAttribute('disabled', 'true');

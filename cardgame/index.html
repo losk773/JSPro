@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Card Game</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:500,400,600">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="welcome-box">
         <div class="welcome-content">
-            <h1 class="welcome-title">Добро пожаловать в карточную игру 21</h1>
-            <input type="text" class="name-input" placeholder="Введите ваше имя">
-            <button type="button" class="start-game-btn">Начать игру</button>
+            <h1 class="welcome-title">Карточная игра <span class="accent-color">21</span></h1>
+            <form class="name-form">
+                <input type="text" class="name-input" placeholder="Введите ваше имя">
+                <button type="button" class="start-game-btn"><i class="material-icons">&#xE146;</i></button>
+            </form>
         </div>
     </div>
+    <div class="result-box"></div>
     <div class="card-board">
         <div class="cards-box"></div>
         <div class="player-place">
@@ -22,7 +27,7 @@
             <div class="player-place-cards"></div>
             <div class="score-box"></div>
             <div class="control-btn">
-                    <button class="get-card-btn">Достать карту</button>
+                    <button class="get-card-btn">Добрать</button>
                     <button class="stop-card-btn">Хватит</button>
                     <button class="restart-card-btn">Рестарт</button>
             </div>
@@ -32,13 +37,12 @@
             <div class="computer-place-cards"></div>
             <div class="score-box"></div>
         </div>
-        
     </div>
 
 </body>
-<script src="js/libs/CardPack.js"></script>
-<script src="js/libs/Player.js"></script>
-<script src="js/libs/Board.js"></script>
+<script src="js/classes/CardPack.js"></script>
+<script src="js/classes/Player.js"></script>
+<script src="js/classes/Board.js"></script>
 <script src="js/main.js"></script>
 <script>
     Game.init();

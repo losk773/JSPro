@@ -25,10 +25,10 @@ var Game = (() => {
             board.welcome.classList.remove('active');
 
             player.name = document.querySelector('.name-input').value;
-            bot.name = 'Искуственный Интелект';
+            bot.name = 'Джон';
 
-            board.playerNameBox.innerText = player.name;
-            board.computerNameBox.innerText = bot.name;
+            board.playerNameBox.innerHTML = '<i class="material-icons">&#xE7FD;</i>' + player.name;
+            board.computerNameBox.innerHTML = '<i class="material-icons">&#xE30B;</i>' + bot.name;
 
             this.tossCardsOnBoard();
             
@@ -36,6 +36,7 @@ var Game = (() => {
         restart: function() {
             board.buttonGetCard.removeAttribute('disabled');
             board.buttonStopCard.removeAttribute('disabled');
+            board.result.classList.remove('active');
             player.score = 0;
             bot.score = 0;
             this.tossCardsOnBoard();
@@ -44,16 +45,10 @@ var Game = (() => {
             board.welcome.classList.add('active');
             board.buttonGetCard.addEventListener('click', player.getCard.bind(player));
             board.buttonStopCard.addEventListener('click',function(e) {
-        
-                bot.botGame.call(bot,e);
-                
-                switch(true) {
-                    case (bot.score > player.score) :
-                    case player.score > 21: console.log('Вы проиграли('); break;
-                    case (bot.score < player.score) :
-                    case bot.score > 21: console.log('Вы выиграли!'); break;
-                    case (bot.score === player.score) : console.log('Ничья!');
-                }
+                bot.startComputerGame.call(bot,e);
+                board.calcultResult.apply(board,[player, bot]);
+                board.result.classList.add('active');
+                restartButton.style.zIndex = 100;
             });
             startButton.addEventListener('click', this.start.bind(this));
             restartButton.addEventListener('click', this.restart.bind(this));

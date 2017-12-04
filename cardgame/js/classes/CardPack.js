@@ -1,14 +1,14 @@
 ;(() => {
-    // Объект карты
+    // Объект карта
     function Card(mode, value) {
         this.mode = mode;
         this.value = value;
     };
-    // Объект колоды карт
+    // Объект колоды
     function CardPack() {
         this.modes = ['♠', '♥', '♣', '♦'];
         this.values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'В', 'Д', 'К', 'Т'];
-        this.generateCardsPack = function () {  // Метод генерации колоды карт
+        this.generateCardsPack = function () {  // Метод генерации колоды
             CardPack.prototype.cards = [];
             for (let i = 0; i < this.modes.length; i++) {
                 for (let k = 0; k < this.values.length; k++) {

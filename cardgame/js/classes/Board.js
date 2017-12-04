@@ -7,6 +7,7 @@
         this.playerPlaceCards = document.querySelector('.player-place-cards');
         this.computerPlaceCards = document.querySelector('.computer-place-cards');
         this.welcome = document.querySelector('.welcome-box');
+        this.result = document.querySelector('.result-box');
         this.computerPlace = document.querySelector('.computer-place');
         this.playerNameBox = document.querySelector('.player-name');
         this.computerNameBox = document.querySelector('.computer-name');
@@ -36,5 +37,25 @@
             this.cardsBox.appendChild(cardElem);
         }
     };
+    // Метод подсчета и вывода результатов
+    Board.prototype.calcultResult = function(player, bot) {
+        if (player.score <= 21 && bot.score <= 21) {
+            switch (true) {
+                case player.score > bot.score: 
+                    this.result.innerHTML = '<h3>' + player.name + ', Вы выйграли <i class="material-icons">&#xE815;</i></h3>'; break;
+                case bot.score > player.score: 
+                    this.result.innerHTML = '<h3>' + player.name + ', Вы проиграли <i class="material-icons">&#xE814;</i></h3>'; break;   
+                case bot.score === player.score: this.result.innerHTML = '<h3>Ничья <i class="material-icons">&#xE7F3;</i></h3>'; break;
+            }
+        } else {
+            switch (true) {
+                case player.score < bot.score: 
+                    this.result.innerHTML = '<h3>' + player.name + ', Вы выйграли <i class="material-icons">&#xE815;</i></h3>'; break;
+                case bot.score < player.score: 
+                    this.result.innerHTML = '<h3>' + player.name + ', Вы проиграли <i class="material-icons">&#xE814;</i></h3>'; break;   
+                case bot.score === player.score: this.result.innerHTML = '<h3>Ничья <i class="material-icons">&#xE7F3;</i></h3>'; break;
+            }
+        }
+    }
     window.Board = Board;
 })();
