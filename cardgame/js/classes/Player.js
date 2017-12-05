@@ -1,5 +1,4 @@
-;
-(() => {
+;(() => {
     // Объект игрока
     function Player(DOMPlaceElement, mode) {
         this.score = 0;

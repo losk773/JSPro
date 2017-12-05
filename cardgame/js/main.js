@@ -3,13 +3,10 @@ var Game = (() => {
     let cardPack = new CardPack();
     let player = new Player(board.playerPlaceCards, 'player');
     let bot = new Player(board.computerPlaceCards);
-    let startButton = document.querySelector('.start-game-btn');
+    let startButton = document.querySelector('.name-input');
     let restartButton = document.querySelector('.restart-card-btn');
 
     return {
-        botGame: function(){
-
-        },
         tossCardsOnBoard: function () {
             board.computerPlace.classList.remove('active');
             cardPack.generateCardsPack();
@@ -20,18 +17,17 @@ var Game = (() => {
                 bot.getCard();
             }
         },
-        start: function () {
-            
-            board.welcome.classList.remove('active');
-
-            player.name = document.querySelector('.name-input').value;
-            bot.name = 'Джон';
-
-            board.playerNameBox.innerHTML = '<i class="material-icons">&#xE7FD;</i>' + player.name;
-            board.computerNameBox.innerHTML = '<i class="material-icons">&#xE30B;</i>' + bot.name;
-
-            this.tossCardsOnBoard();
-            
+        start: function (e) {
+            switch(true) {
+                case e.keyCode === 13:
+                    board.welcome.classList.remove('active');
+                    player.name = document.querySelector('.name-input').value || 'Игрок';
+                    bot.name = 'Джон';
+                    board.playerNameBox.innerHTML = '<i class="material-icons">&#xE7FD;</i>' + player.name;
+                    board.computerNameBox.innerHTML = '<i class="material-icons">&#xE30B;</i>' + bot.name;
+                    this.tossCardsOnBoard();
+                break;
+            }
         },
         restart: function() {
             board.buttonGetCard.removeAttribute('disabled');
@@ -50,7 +46,7 @@ var Game = (() => {
                 board.result.classList.add('active');
                 restartButton.style.zIndex = 100;
             });
-            startButton.addEventListener('click', this.start.bind(this));
+            startButton.addEventListener('keyup', this.start.bind(this));
             restartButton.addEventListener('click', this.restart.bind(this));
         }
     };
