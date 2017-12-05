@@ -22,7 +22,8 @@
         let gotElementCard = cardItems.shift();
         this.hand.push(gotElementCard);
         this.place.appendChild(gotElementCard);
-
+        localStorage.setItem('cards', JSON.stringify(this.cards));
+        
         switch (true) {
             case (parseInt(gotCard.value) >= 6 || parseInt(gotCard.value) <= 10): 
                 this.score += parseInt(gotCard.value); break;
@@ -35,7 +36,8 @@
                     answer ? this.score += 11 : this.score += 1;
                     break;
                 } else {
-                    this.score += parseInt(prompt('Выберите номинал туза 1/11', ''));
+                    this.optionAce(gotElementCard);
+                    //this.score += parseInt(prompt('Выберите номинал туза 1/11', ''));
                     break;
                 }
         }
@@ -60,6 +62,20 @@
                 case this.score >= 18: flag = false; break;
             }
         }
+    }
+    Player.prototype.optionAce = function(card) {
+        let option = document.querySelector('.option').cloneNode(true);
+        let buttonOption = option.querySelectorAll('.option button');
+        let that = this;
+        for(let i = 0; i < buttonOption.length; i++) {
+            buttonOption[i].addEventListener('click', function(e) {
+                that.score += parseInt(e.target.dataset.value);
+                that.showScore();
+                option.remove(); 
+            });
+        }
+        option.classList.add('active');
+        card.appendChild(option);
     }
     window.Player = Player;
 })();

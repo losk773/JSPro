@@ -18,6 +18,8 @@
                 }
             }
             this.shuffleCardsPack();
+            
+            localStorage.setItem('cards', JSON.stringify(this.cards));
         };
         this.shuffleCardsPack = function () {   // Метод перетасовки колоды
             if (this.cards.length) {

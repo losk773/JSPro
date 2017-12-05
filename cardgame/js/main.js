@@ -18,15 +18,15 @@ var Game = (() => {
             }
         },
         start: function (e) {
-            switch(true) {
-                case e.keyCode === 13:
-                    board.welcome.classList.remove('active');
-                    player.name = document.querySelector('.name-input').value || 'Игрок';
-                    bot.name = 'Джон';
-                    board.playerNameBox.innerHTML = '<i class="material-icons">&#xE7FD;</i>' + player.name;
-                    board.computerNameBox.innerHTML = '<i class="material-icons">&#xE30B;</i>' + bot.name;
-                    this.tossCardsOnBoard();
-                break;
+            if (e.keyCode === 13) {
+                board.welcome.classList.remove('active');
+                player.name = document.querySelector('.name-input').value || 'Игрок';
+                bot.name = 'Джон';
+                board.playerNameBox.innerHTML = player.name;
+                board.computerNameBox.innerHTML = bot.name;
+                localStorage.setItem('player_name', player.name);
+                localStorage.setItem('bot_name', bot.name);
+                this.tossCardsOnBoard();
             }
         },
         restart: function() {
@@ -38,7 +38,15 @@ var Game = (() => {
             this.tossCardsOnBoard();
         },
         init: function () {
-            board.welcome.classList.add('active');
+            if (localStorage.getItem('player_name')) {
+                board.playerNameBox.innerHTML = localStorage.getItem('player_name');
+                board.computerNameBox.innerHTML = localStorage.getItem('bot_name');
+                console.log(cardPack);
+                board.createPackOnBoard(JSON.parse(localStorage.getItem('cards')));
+                console.log(JSON.parse(localStorage.getItem('cards')));
+            } else {
+                board.welcome.classList.add('active');
+            }
             board.buttonGetCard.addEventListener('click', player.getCard.bind(player));
             board.buttonStopCard.addEventListener('click',function(e) {
                 bot.startComputerGame.call(bot,e);
