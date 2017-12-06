@@ -10,7 +10,7 @@ var Game = (() => {
         tossCardsOnBoard: function () {
             board.computerPlace.classList.remove('active');
             cardPack.generateCardsPack();
-            board.createPackOnBoard(cardPack.cards);
+            board.createCardOnBoard(cardPack.cards, board.cardsBox);
 
             for (let i = 0; i < 2; i++) {
                 player.getCard();
@@ -30,20 +30,30 @@ var Game = (() => {
             }
         },
         restart: function() {
+            board.cardsBox.innerHTML = '';
+            board.playerPlaceCards.innerHTML = '';
+            board.computerPlaceCards.innerHTML = '';
             board.buttonGetCard.removeAttribute('disabled');
             board.buttonStopCard.removeAttribute('disabled');
             board.result.classList.remove('active');
             player.score = 0;
             bot.score = 0;
+            player.hand = [];
+            bot.hand = [];
             this.tossCardsOnBoard();
         },
         init: function () {
             if (localStorage.getItem('player_name')) {
+                CardPack.prototype.cards = JSON.parse(localStorage.getItem('cards'));
                 board.playerNameBox.innerHTML = localStorage.getItem('player_name');
                 board.computerNameBox.innerHTML = localStorage.getItem('bot_name');
-                console.log(cardPack);
-                board.createPackOnBoard(JSON.parse(localStorage.getItem('cards')));
-                console.log(JSON.parse(localStorage.getItem('cards')));
+                player.score = Math.floor(localStorage.getItem('player_score'));
+                bot.score = Math.floor(localStorage.getItem('bot_score'));
+                board.createCardOnBoard(cardPack.cards, board.cardsBox);
+                board.createCardOnBoard(JSON.parse(localStorage.getItem('player_hand')), board.playerPlaceCards);
+                board.createCardOnBoard(JSON.parse(localStorage.getItem('bot_hand')), board.computerPlaceCards);
+                player.showScore();
+                bot.showScore();
             } else {
                 board.welcome.classList.add('active');
             }

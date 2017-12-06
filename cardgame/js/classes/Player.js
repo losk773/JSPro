@@ -20,10 +20,12 @@
         let gotCard = this.cards.shift();
         let cardItems = Array.from(document.querySelectorAll('.cards-box .card'));
         let gotElementCard = cardItems.shift();
-        this.hand.push(gotElementCard);
+        this.hand.push(gotCard);
         this.place.appendChild(gotElementCard);
+
         localStorage.setItem('cards', JSON.stringify(this.cards));
-        
+        localStorage.setItem(this.mode + '_hand', JSON.stringify(this.hand));
+
         switch (true) {
             case (parseInt(gotCard.value) >= 6 || parseInt(gotCard.value) <= 10): 
                 this.score += parseInt(gotCard.value); break;
@@ -37,10 +39,10 @@
                     break;
                 } else {
                     this.optionAce(gotElementCard);
-                    //this.score += parseInt(prompt('Выберите номинал туза 1/11', ''));
                     break;
                 }
         }
+        localStorage.setItem(this.mode + '_score', this.score);
         if (this.score > 21 && e) e.target.setAttribute('disabled', 'true');
         this.showScore();
     };

@@ -13,11 +13,7 @@
         this.computerNameBox = document.querySelector('.computer-name');
     };
     // Метод создания карт на столе. В качестве аргумента получает массив карт колоды.
-    Board.prototype.createPackOnBoard = function (cardsPack) {
-        this.cardsBox.innerHTML = '';
-        this.playerPlaceCards.innerHTML = '';
-        this.computerPlaceCards.innerHTML = '';
-
+    Board.prototype.createCardOnBoard = function (cardsPack, box) {
         let zIndex = 52;
         let leftPos = 0;
         let topPos = 0;
@@ -34,25 +30,27 @@
             cardElem.style.zIndex = --zIndex;
             topPos -= 1.5;
             cardElem.style.top = topPos + 'px';
-            this.cardsBox.appendChild(cardElem);
+            box.appendChild(cardElem);
         }
     };
     // Метод подсчета и вывода результатов
     Board.prototype.calcultResult = function(player, bot) {
+        console.log(player);
+        console.log(bot);
         if (player.score <= 21 && bot.score <= 21) {
             switch (true) {
                 case player.score > bot.score: 
-                    this.result.innerHTML = '<h3>' + player.name + ', Вы выйграли <i class="material-icons">&#xE815;</i></h3>'; break;
+                    this.result.innerHTML = '<h3>' + localStorage.getItem('player_name') + ', Вы выйграли <i class="material-icons">&#xE815;</i></h3>'; break;
                 case bot.score > player.score: 
-                    this.result.innerHTML = '<h3>' + player.name + ', Вы проиграли <i class="material-icons">&#xE814;</i></h3>'; break;   
+                    this.result.innerHTML = '<h3>' + localStorage.getItem('player_name') + ', Вы проиграли <i class="material-icons">&#xE814;</i></h3>'; break;   
                 case bot.score === player.score: this.result.innerHTML = '<h3>Ничья <i class="material-icons">&#xE7F3;</i></h3>'; break;
             }
         } else {
             switch (true) {
                 case player.score < bot.score: 
-                    this.result.innerHTML = '<h3>' + player.name + ', Вы выйграли <i class="material-icons">&#xE815;</i></h3>'; break;
+                    this.result.innerHTML = '<h3>' + localStorage.getItem('player_name') + ', Вы выйграли <i class="material-icons">&#xE815;</i></h3>'; break;
                 case bot.score < player.score: 
-                    this.result.innerHTML = '<h3>' + player.name + ', Вы проиграли <i class="material-icons">&#xE814;</i></h3>'; break;   
+                    this.result.innerHTML = '<h3>' + localStorage.getItem('player_name') + ', Вы проиграли <i class="material-icons">&#xE814;</i></h3>'; break;   
                 case bot.score === player.score: this.result.innerHTML = '<h3>Ничья <i class="material-icons">&#xE7F3;</i></h3>'; break;
             }
         }
