@@ -16,7 +16,7 @@
     Board.prototype = Object.create(CardPack.prototype);
     Board.prototype.constructor = Board;
 
-    // Метод создания карт на столе. В качестве аргумента получает массив карт колоды.
+    // Метод создания карт на столе. Аргументы: массив карт и контейнер в котором создать.
     Board.prototype.createCardOnBoard = function (cardsPack, box) {
         let zIndex = cardsPack.length;
         let leftPos = 0;
@@ -69,7 +69,7 @@
     	this.createCardOnBoard(JSON.parse(localStorage.getItem('bot_hand')), this.computerPlaceCards);
     	player.showScore();
     	bot.showScore();
-    }
+    };
 
     window.Board = Board;
 })();

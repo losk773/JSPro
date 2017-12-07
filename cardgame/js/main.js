@@ -7,6 +7,7 @@ var Game = (() => {
     let restartButton = document.querySelector('.restart-card-btn');
 
     return {
+    	// Метод выбрасывания карт на стол
         tossCardsOnBoard: function () {
             board.computerPlace.classList.remove('active');
             cardPack.generateCardsPack();
@@ -17,6 +18,7 @@ var Game = (() => {
                 bot.getCard();
             }
         },
+        // Метод запуска игры
         start: function (e) {
             if (e.keyCode === 13) {
                 board.welcome.classList.remove('active');
@@ -29,6 +31,7 @@ var Game = (() => {
                 this.tossCardsOnBoard();
             }
         },
+        // Метод рестарта партии
         restart: function() {
             board.cardsBox.innerHTML = '';
             board.playerPlaceCards.innerHTML = '';
@@ -42,6 +45,7 @@ var Game = (() => {
             bot.hand = [];
             this.tossCardsOnBoard();
         },
+        // Метод инициализации игрыы
         init: function () {
             if (localStorage.getItem('player_name')) {
                 board.getDataFromLocalStorage(bot, player);
