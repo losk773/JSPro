@@ -11,9 +11,10 @@
     Player.prototype.constructor = Player;
 
     // Метод показа счета игрока
-    Player.prototype.showScore = function() {
+    Player.prototype.showScore = function(e) {
         let scoreBox = this.place.nextElementSibling;
         scoreBox.innerText = this.score;
+        if (this.score > 21 && e) e.target.setAttribute('disabled', 'true');
     };
     // Метод получения карты из колоды
     Player.prototype.getCard = function (e) {
@@ -43,9 +44,9 @@
                 }
         }
         localStorage.setItem(this.mode + '_score', this.score);
-        if (this.score > 21 && e) e.target.setAttribute('disabled', 'true');
-        this.showScore();
+        this.showScore(e);
     };
+    //Метод игры бота
     Player.prototype.startComputerGame = function(e) {
         let target = e.target;
         target.setAttribute('disabled', 'true');

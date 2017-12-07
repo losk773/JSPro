@@ -44,16 +44,7 @@ var Game = (() => {
         },
         init: function () {
             if (localStorage.getItem('player_name')) {
-                CardPack.prototype.cards = JSON.parse(localStorage.getItem('cards'));
-                board.playerNameBox.innerHTML = localStorage.getItem('player_name');
-                board.computerNameBox.innerHTML = localStorage.getItem('bot_name');
-                player.score = Math.floor(localStorage.getItem('player_score'));
-                bot.score = Math.floor(localStorage.getItem('bot_score'));
-                board.createCardOnBoard(cardPack.cards, board.cardsBox);
-                board.createCardOnBoard(JSON.parse(localStorage.getItem('player_hand')), board.playerPlaceCards);
-                board.createCardOnBoard(JSON.parse(localStorage.getItem('bot_hand')), board.computerPlaceCards);
-                player.showScore();
-                bot.showScore();
+                board.getDataFromLocalStorage(bot, player);
             } else {
                 board.welcome.classList.add('active');
             }
