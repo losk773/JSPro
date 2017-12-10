@@ -1,4 +1,9 @@
-var Game = (() => {
+module.exports = (() => {
+
+    let CardPack = require('./classes/CardPack');
+    let Board = require('./classes/Board');
+    let Player = require('./classes/Player');
+
     let board = new Board();
     let cardPack = new CardPack();
     let player = new Player(board.playerPlaceCards, 'player');

@@ -70,6 +70,6 @@
     	player.showScore();
     	bot.showScore();
     };
-
     window.Board = Board;
+    module.exports = Board;
 })();

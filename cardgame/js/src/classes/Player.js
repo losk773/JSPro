@@ -81,4 +81,5 @@
         card.appendChild(option);
     }
     window.Player = Player;
+    module.exports = Player;
 })();

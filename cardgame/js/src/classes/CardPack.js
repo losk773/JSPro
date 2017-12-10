@@ -29,6 +29,6 @@
             }
         };
     };
-
     window.CardPack = CardPack;
+    module.exports = CardPack;
 })();
