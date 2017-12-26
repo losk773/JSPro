@@ -246,7 +246,9 @@ body {
     width: 100%;
     padding-right: 30px;
     padding-bottom: 5px;
-    font: 400 14px 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
     letter-spacing: 2px;
     color: #ffffff;
     transition: all .4s;

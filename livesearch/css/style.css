@@ -69,7 +69,9 @@ body {
     padding-left: 25px;
     border: none;
     width: 15%;
-    font: 500 16px 'Montserrat' sans-serif;
+    font-family: 'Montserrat' sans-serif;
+    font-weight: 500;
+    font-size: 16px;
     border-bottom: 2px solid  #E73A38;
     background-color: #EFEBD9;
     transition: all .4s;
