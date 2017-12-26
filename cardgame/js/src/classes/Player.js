@@ -59,9 +59,11 @@
             switch (true) {
                 case (this.score >= 2 && this.score < 16): this.getCard(); break;
                 case (this.score >= 16 && this.score < 18):
-                    let answer = ((min, max) => { return Math.floor(Math.random() * (max - min)) + min; })(0, 2);
-                    answer ? this.getCard() : flag = false;
-                    break;
+                let answer = ((min, max) => { 
+                    return Math.floor(Math.random() * (max - min)) + min; 
+                })(0, 2);
+                answer ? this.getCard() : flag = false;
+                break;
                 case this.score >= 18: flag = false; break;
             }
         }
@@ -80,6 +82,8 @@
         option.classList.add('active');
         card.appendChild(option);
     }
+
     window.Player = Player;
     module.exports = Player;
+
 })();

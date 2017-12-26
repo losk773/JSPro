@@ -69,7 +69,7 @@ body {
     padding-left: 25px;
     border: none;
     width: 15%;
-    font: 500 16px 'Montserrat';
+    font: 500 16px 'Montserrat' sans-serif;
     border-bottom: 2px solid  #E73A38;
     background-color: #EFEBD9;
     transition: all .4s;
@@ -79,7 +79,7 @@ body {
     width: 100%;
 }
 .search-head input::-webkit-input-placeholder {
-    font: 500 14px 'Montserrat';
+    font: 500 14px 'Montserrat' sans-serif;
     color: #403E4E;
 }
 .search-count {
