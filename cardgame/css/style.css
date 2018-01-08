@@ -13,7 +13,7 @@
     direction: ltr;
   }
 body {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     background-image: url(https://st3.depositphotos.com/4072575/15577/i/110/depositphotos_155774886-stock-photo-poker-table-felt-background-seamless.jpg)
@@ -246,7 +246,9 @@ body {
     width: 100%;
     padding-right: 30px;
     padding-bottom: 5px;
-    font: 400 14px 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
     letter-spacing: 2px;
     color: #ffffff;
     transition: all .4s;
