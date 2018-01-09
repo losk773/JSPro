@@ -1,4 +1,4 @@
-module.exports = (() => {
+let Game = (() => {
 	let CardPack = require('./classes/CardPack');
 	let Board = require('./classes/Board');
 	let Player = require('./classes/Player');
@@ -68,3 +68,6 @@ module.exports = (() => {
         }
     };
 })();
+
+// Запуск игры
+Game.init();

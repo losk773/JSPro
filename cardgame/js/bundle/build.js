@@ -1,4 +1,3 @@
-var Game =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -68,7 +67,7 @@ var Game =
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (() => {
+let Game = (() => {
 	let CardPack = __webpack_require__(1);
 	let Board = __webpack_require__(2);
 	let Player = __webpack_require__(3);
@@ -138,6 +137,9 @@ module.exports = (() => {
         }
     };
 })();
+
+// Запуск игры
+Game.init();
 
 /***/ }),
 /* 1 */
