@@ -126,8 +126,8 @@ let Game = (() => {
         		board.welcome.classList.add('active');
         	}
         	board.buttonGetCard.addEventListener('click', player.getCard.bind(player));
-        	board.buttonStopCard.addEventListener('click',function(e) {
-        		bot.startComputerGame.call(bot,e);
+        	board.buttonStopCard.addEventListener('click',(e) => {
+        		bot.startComputerGame(e);
         		board.calcultResult.apply(board,[player, bot]);
         		board.result.classList.add('active');
         		restartButton.style.zIndex = 100;
