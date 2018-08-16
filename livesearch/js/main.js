@@ -1,5 +1,5 @@
 var LiveSearch = (() => {
-    var data = [];
+    let data = [];
     let url = 'https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json';
     return {
         loadCities: function(url) {
