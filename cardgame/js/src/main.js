@@ -2,7 +2,7 @@ let Game = (() => {
 	let CardPack = require('./classes/CardPack');
 	let Board = require('./classes/Board');
 	let Player = require('./classes/Player');
-
+	
 	let board = new Board();
 	let cardPack = new CardPack();
 	let player = new Player(board.playerPlaceCards, 'player');
@@ -51,20 +51,27 @@ let Game = (() => {
         },
         // Метод инициализации игрыы
         init: function () {
+
         	if (localStorage.getItem('player_name')) {
         		board.getDataFromLocalStorage(bot, player);
         	} else {
         		board.welcome.classList.add('active');
         	}
+
         	board.buttonGetCard.addEventListener('click', player.getCard.bind(player));
+
         	board.buttonStopCard.addEventListener('click',(e) => {
+
         		bot.startComputerGame(e);
         		board.calcultResult.apply(board,[player, bot]);
         		board.result.classList.add('active');
         		restartButton.style.zIndex = 100;
+
         	});
         	startButton.addEventListener('keyup', this.start.bind(this));
+
         	restartButton.addEventListener('click', this.restart.bind(this));
+					
         }
     };
 })();

@@ -24,6 +24,7 @@
 
         for (let i = 0; i < cardsPack.length; i++) {
             let cardElem = document.createElement('div');
+            
             cardElem.classList.add('card');
             cardElem.dataset.color = cardsPack[i].color;
             cardElem.innerHTML = "<div class='card-content'>" +
@@ -60,13 +61,17 @@
     // Метод получения данных из локального хранилища
     Board.prototype.getDataFromLocalStorage = function (bot, player) {
     	CardPack.prototype.cards = JSON.parse(localStorage.getItem('cards'));
+
     	this.playerNameBox.innerHTML = localStorage.getItem('player_name');
     	this.computerNameBox.innerHTML = localStorage.getItem('bot_name');
+
     	player.score = Math.floor(localStorage.getItem('player_score'));
     	bot.score = Math.floor(localStorage.getItem('bot_score'));
+
     	this.createCardOnBoard(this.cards, this.cardsBox);
     	this.createCardOnBoard(JSON.parse(localStorage.getItem('player_hand')), this.playerPlaceCards);
     	this.createCardOnBoard(JSON.parse(localStorage.getItem('bot_hand')), this.computerPlaceCards);
+
     	player.showScore();
     	bot.showScore();
     };
